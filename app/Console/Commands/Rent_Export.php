@@ -7,6 +7,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Filesystem\Filesystem;
 use SebastianBergmann\Environment\Console;
 use App\Http\Controllers\UserController;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class Rent_Export extends Command
 {
@@ -42,6 +43,12 @@ class Rent_Export extends Command
     public function handle()
     {
         $controller = new UserController();
-        return $controller->rentFileExport();
+        $output = new ConsoleOutput();
+        while(true) {
+            $controller->rentFileExport();
+            $output->writeln("<info>Output Rent data in CSV format</info>");
+            sleep(60*5);
+        }
+        return 0;
     }
 }
