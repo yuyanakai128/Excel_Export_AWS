@@ -6,11 +6,11 @@
    `user : xs800543_kuizy`
    `password : 12345678`
    でSqlyogを利用して、テータベース連結を進行する。
-3. Create a `csv_export` database for the project
-4. Run `docker exec -it app /bin/sh` in terminal
-5. Run `cd /var/www/html`
-6. From the projects root folder run `php artisan key:generate`
-7. After docker build, from the projects root folder run `php artisan migrate`
+3. プロジェクト用の`csv_export`データベースを作成します。
+4. ターミナルで `docker exec -it app /bin/sh` を実行する
+5. `cd /var/www/html`を実行する
+6. `php artisan key:generate` を実行する
+7. `php artisan migrate`を実行します。
 8. プロジェクトのルート端末で `php artisan schedule:test`を実行します。
 9. このようなコマンドが表示されます。
      ```
