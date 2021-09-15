@@ -7,6 +7,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Filesystem\Filesystem;
 use SebastianBergmann\Environment\Console;
 use App\Http\Controllers\UserController;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class Sales_Export extends Command
 {
@@ -42,6 +43,12 @@ class Sales_Export extends Command
     public function handle()
     {
         $controller = new UserController();
-        return $controller->salesFileExport();
+        $output = new ConsoleOutput();
+        while(true) {
+            $controller->salesFileExport();
+            $output->writeln("<info>Output Sales data in CSV format</info>");
+            sleep(60*5);
+        }
+        return 0;
     }
 }

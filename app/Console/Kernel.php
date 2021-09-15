@@ -26,8 +26,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('rent:data')->everyFiveMinutes();
-        $schedule->command('sales:data')->everyFiveMinutes();
+        $schedule->command('rent:data')->everyMinute()->runInBackground();
+        $schedule->command('sales:data')->everyMinute()->runInBackground();
     }
 
     /**
