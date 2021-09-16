@@ -8,6 +8,9 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class SalesExport implements FromCollection, WithHeadings
 {
+    private $headers = [
+        'Content-Type' => 'text/csv',
+    ];
     /**
     * @return \Illuminate\Support\Collection
     */
