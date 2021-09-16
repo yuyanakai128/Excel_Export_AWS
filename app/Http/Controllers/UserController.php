@@ -46,7 +46,7 @@ class UserController extends Controller
                 return $this->deleteFolder();
             }
             $today = date("YmdHis");
-            return Excel::store(new RentsExport(), 'backup/'.$today.'/TR13_CSV.xlsx', 'rent_public');
+            return Excel::store(new RentsExport(), 'backup/'.$today.'/TR13_CSV.csv', 'rent_public');
         } catch (\Throwable $err) {
             throw $err;
         }
@@ -66,7 +66,7 @@ class UserController extends Controller
                 return $this->deleteFolder();
             }
             $today = date("YmdHis");
-            return Excel::store(new SalesExport(), 'backup/'.$today.'/TR10_CSV.xlsx', 'sales_public');
+            return Excel::store(new SalesExport(), 'backup/'.$today.'/TR10_CSV.csv', 'sales_public');
 
         } catch (\Throwable $err) {
             throw $err;

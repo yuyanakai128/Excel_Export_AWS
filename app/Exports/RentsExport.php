@@ -8,6 +8,10 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class RentsExport implements FromCollection, WithHeadings
 {
+
+    private $headers = [
+        'Content-Type' => 'text/csv',
+    ];
     /**
     * @return \Illuminate\Support\Collection
     */
