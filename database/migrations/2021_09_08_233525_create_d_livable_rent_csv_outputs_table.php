@@ -14,12 +14,13 @@ class CreateDLivableRentCsvOutputsTable extends Migration
     public function up()
     {
         Schema::create('d_livable_rent_csv_outputs', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->dateTime('cond_date')->nullable();
             $table->dateTime('ml_send_date')->nullable();
             $table->string('ml_from');
             $table->string('ml_subject');
             $table->string('rec_date');
-            $table->bigIncrements('uid');
+            $table->string('uid');
             $table->string('dm_cd');
             $table->string('com_cd');
             $table->string('com_name')->nullable();

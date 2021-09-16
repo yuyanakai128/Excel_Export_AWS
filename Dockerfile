@@ -12,7 +12,7 @@ RUN apk add --no-cache \
       libpng-dev \
     && docker-php-ext-configure gd \
       --with-freetype=/usr/include/ \
-      # --with-png=/usr/include/ \ # No longer necessary as of 7.4; https://github.com/docker-library/php/pull/910#issuecomment-559383597
+      # --with-png=/usr/include/ \ 
       --with-jpeg=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-enable gd \
