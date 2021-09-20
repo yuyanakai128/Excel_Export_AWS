@@ -15,7 +15,6 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\Rent_Export::class,
-        Commands\Sales_Export::class,
     ];
 
     /**
@@ -26,8 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('rent:data')->everyMinute()->runInBackground();
-        $schedule->command('sales:data')->everyMinute()->runInBackground();
+        $schedule->command('csv:export')->everyMinute()->runInBackground();
     }
 
     /**

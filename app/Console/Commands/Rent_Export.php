@@ -16,7 +16,7 @@ class Rent_Export extends Command
      *
      * @var string
      */
-    protected $signature = 'rent:data';
+    protected $signature = 'csv:export';
 
     /**
      * The console command description.
@@ -44,10 +44,18 @@ class Rent_Export extends Command
     {
         $controller = new UserController();
         $output = new ConsoleOutput();
+        $env = env('RENT');
+        $output->writeln("<info>env</info>".$env);
         while(true) {
-            $controller->rentFileExport();
-            $output->writeln("<info>Output Rent data in CSV format</info>");
-            sleep(60*5);
+            if($env) {
+                $controller->rentFileExport();
+                $output->writeln("<info>Output Rent data in CSV format</info>");
+                sleep(60*5);
+            } else {
+                $controller->salesFileExport();
+                $output->writeln("<info>Output Sales data in CSV format</info>");
+                sleep(60*5);
+            }
         }
         return 0;
     }
