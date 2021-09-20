@@ -3,6 +3,6 @@
 while [ true ]
 do
   php /var/www/artisan key:generate
-  php /var/www/artisan schedule:run
+  php /var/www/artisan csv:export
   sleep 60*5
 done
