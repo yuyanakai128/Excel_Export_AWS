@@ -1,7 +1,5 @@
 FROM php:7.4-fpm-alpine
 
-WORKDIR /var/www/html
-
 # Setup GD extension
 RUN apk add --no-cache \
       freetype \
@@ -25,3 +23,13 @@ RUN apk add --no-cache \
 RUN apk add libzip-dev
 
 RUN docker-php-ext-install pdo pdo_mysql zip bcmath
+
+# Copy supervisor scripts into container (only used by worker servers)
+COPY ./docker/entrypoint.sh /usr/bin/entrypoint.sh
+RUN chmod +x /usr/bin/entrypoint.sh
+
+# Copy application code into container
+ADD . /var/www
+ADD ./public /var/www/html
+RUN chown -R www-data /var/www/bootstrap \
+ && chown -R www-data /var/www/storage
