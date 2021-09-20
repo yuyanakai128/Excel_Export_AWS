@@ -1,4 +1,7 @@
 # DB上のデータをCSV形式で出力
+### Localで実行
+php artisan key:generate
+php artisan csv:export
 
 ### Local Dockerビルド
 1. プロジェクトのルートフォルダで、`docker build -t excel_export_aws .`を実行する。
