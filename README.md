@@ -30,12 +30,10 @@
 5. Elastic File Systemの作成
 6. タスク定義の作成(EFS volumeの作成)
 7. 作成したタスクをデプロイします.
-8. 
-aws ecs run-task \
---cluster "<cluster>" \
---launch-type FARGATE \
---task-definition "<task definition>" 
-で実行
+8. aws ecs run-task \
+   --cluster "<cluster>" \
+   --launch-type FARGATE \
+   --task-definition "<task definition>" で実行
 
 
 ### 出力ファイルパス
